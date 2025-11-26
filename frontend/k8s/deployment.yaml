@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cn-board-frontend
+  labels:
+    app: cn-board-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cn-board-frontend
+  template:
+    metadata:
+      labels:
+        app: cn-board-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: YOUR_REGISTRY/cn-board-frontend:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          name: http
+        env:
+        - name: VITE_API_BASE_URL
+          value: "http://cn-board-backend-service:8080/api"
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 5
+

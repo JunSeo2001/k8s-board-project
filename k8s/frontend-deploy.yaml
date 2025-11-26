@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: board-frontend
+  namespace: board
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: board-frontend
+  template:
+    metadata:
+      labels:
+        app: board-frontend
+    spec:
+      containers:
+        - name: board-frontend
+          image: junseo6233/board-frontend:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80

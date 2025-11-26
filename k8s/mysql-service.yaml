@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  namespace: board
+spec:
+  type: ClusterIP
+  ports:
+    - port: 3306       # 클러스터 내부 포트
+      targetPort: 3306 # 컨테이너 포트
+  selector:
+    app: mysql
