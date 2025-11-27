@@ -38,6 +38,6 @@ jobs:
           context: ./frontend
           file: ./frontend/Dockerfile
           push: true
-	  platforms: linux/amd64
+          platforms: linux/amd64
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/board-frontend:latest

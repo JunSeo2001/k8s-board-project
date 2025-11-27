@@ -40,6 +40,6 @@ jobs:
           context: ./backend
           file: ./backend/Dockerfile
           push: true
-	  platforms: linux/amd64
+          platforms: linux/amd64
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/board-backend:latest
