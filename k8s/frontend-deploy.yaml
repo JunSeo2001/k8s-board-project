@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: board-frontend
-          image: junseo6233/board-frontend:1.0.0
+          image: junseo6233/board-frontend:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80

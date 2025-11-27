@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: board-backend
-          image: junseo6233/board-backend:1.0.0
+          image: junseo6233/board-backend:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
