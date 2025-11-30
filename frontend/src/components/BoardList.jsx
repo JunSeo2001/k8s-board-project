@@ -57,7 +57,7 @@ const BoardList = () => {
   return (
     <div className="board-list-container">
       <div className="board-header">
-        <h1>게시판</h1>
+        <h1>게시판 CICD TEST</h1>
         <button 
           className="btn btn-primary"
           onClick={() => navigate('/boards/new')}
